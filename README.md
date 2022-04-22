@@ -15,6 +15,5 @@ Essa aplicação serve para controle e notificação de contas que precisam ser 
 
 ### Fluxo inícial
 
-obs: esse fluxo está sujeito a mudança
-
 Criar sessão -> Inclusão de N contas
+obs: esse fluxo está sujeito a mudança
