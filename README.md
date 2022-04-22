@@ -17,3 +17,32 @@ Essa aplicação serve para controle e notificação de contas que precisam ser 
 
 Criar sessão -> Inclusão de N contas
 obs: esse fluxo está sujeito a mudança
+
+
+## Entidades
+
+### PaymentSession
+
+```typescript
+class PaymentSession {
+  id: number;
+  name: string;
+  description: string;
+  totalPaid: number;
+  totalRemaining: number;
+  billings: Billing[];
+}
+```
+
+### Billing
+
+```typescript
+class Billing {
+  id: number;
+  description: string;
+  dueDate: Date;
+  amount: number;
+  totalNumberOfInstallments: number;
+  totalOfInstallmentsPaid: number;
+}
+```
