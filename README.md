@@ -23,12 +23,10 @@ obs: esse fluxo está sujeito a mudança
 
 ### `PaymentSession`
 ```typescript
-class PaymentSession {
+class BillingGrouping {
   id: number;
   name: string;
   description: string;
-  totalPaid: number;
-  totalRemaining: number;
   billings: Billing[];
 }
 ```
