@@ -52,10 +52,11 @@ export class Billing {
   }
 
   remainingInstallments(): number {
-    if (this.fixedPayment())
-      throw new NotRemaningInstallmentsError(
-        "This billing doesn't have installments because it's fixed payment",
-      );
+    if (this.fixedPayment()) {
+      const message =
+        "This billing doesn't have installments because it's fixed payment";
+      throw new NotRemaningInstallmentsError(message);
+    }
     return this.totalNumberOfInstallments - this.totalOfInstallmentsPaid;
   }
 }
