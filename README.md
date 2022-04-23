@@ -13,13 +13,6 @@ Essa aplicação serve para controle e notificação de contas que precisam ser 
   * quantidade de parcelas total
   * quantidade de parcelas pagas 
 
-### Fluxo inícial
-
-> Criar sessão -> Inclusão de N contas
-
-> obs: esse fluxo está sujeito a mudança
-
-
 ## Entidades
 
 ### `PaymentSession`
@@ -47,11 +40,13 @@ class Billing {
 
 ## Modelo de desenvolvimento e Arquitetura
 
-Grande parte dos conceitos, arquiteturas e práticas de desenvolvimento usado nesse repositório pode ser visualizado nesse vídeo da FullCycle com o palestrante Rodrigo Bramas.
+Grande parte dos conceitos, arquiteturas e práticas de desenvolvimento usado nesse repositório pode ser visualizado no vídeo [Clean Architecture](https://www.youtube.com/watch?v=BuSf7VsH064) do canal [Full Cycle](https://www.youtube.com/channel/UCMUoZehUZBhLb8XaTc8TQrA) com o palestrante [Rodrigo Bramas](https://www.youtube.com/channel/UCkqOofjb7nl6V8vXrIbGtiQ).
 
-Além disso, todas as referências de procedimentos e boas práticas estão abaixo:
+Além disso, todas as referências de procedimentos e boas práticas usados até agora estão abaixo:
 
 ### Links
 * [Git Flow](https://medium.com/trainingcenter/utilizando-o-fluxo-git-flow-e63d5e0d5e04)
 * [Clean Code](https://balta.io/blog/clean-code)
-* [Clean Architecture](https://www.youtube.com/watch?v=BuSf7VsH064)
+* [SOLID](https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530)
+* [TDD](https://www.youtube.com/watch?v=sg1zFpNM5Jw)
+* [Clean Achitecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
