@@ -21,8 +21,8 @@ export class Billing {
   private dueDate: Date;
   private amount: number;
   private status: BillingStatus;
-  private totalNumberOfInstallments: number;
-  private totalOfInstallmentsPaid: number;
+  private totalNumberOfInstallments?: number;
+  private totalOfInstallmentsPaid?: number;
 
   constructor(billing: IBilling) {
     this.id = billing.id;
@@ -30,8 +30,8 @@ export class Billing {
     this.dueDate = billing.dueDate;
     this.amount = billing.amount;
     this.status = billing.status;
-    this.totalNumberOfInstallments = billing.totalNumberOfInstallments;
-    this.totalOfInstallmentsPaid = billing.totalOfInstallmentsPaid;
+    this.totalNumberOfInstallments = billing.totalNumberOfInstallments || 0;
+    this.totalOfInstallmentsPaid = billing.totalOfInstallmentsPaid || 0;
   }
 
   fixedPayment(): boolean {
