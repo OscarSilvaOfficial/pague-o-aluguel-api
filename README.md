@@ -40,6 +40,7 @@ class Billing {
   description: string;
   dueDate: Date;
   amount: number;
+  status: BillingStatus;
   totalNumberOfInstallments: number;
   totalOfInstallmentsPaid: number;
 }
