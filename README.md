@@ -21,8 +21,7 @@ obs: esse fluxo está sujeito a mudança
 
 ## Entidades
 
-### PaymentSession
-
+### `PaymentSession`
 ```typescript
 class PaymentSession {
   id: number;
@@ -34,8 +33,7 @@ class PaymentSession {
 }
 ```
 
-### Billing
-
+### `Billing`
 ```typescript
 class Billing {
   id: number;
