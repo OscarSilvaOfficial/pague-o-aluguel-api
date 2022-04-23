@@ -44,3 +44,14 @@ class Billing {
   totalOfInstallmentsPaid: number;
 }
 ```
+
+## Modelo de desenvolvimento e Arquitetura
+
+Grande parte dos conceitos, arquiteturas e práticas de desenvolvimento usado nesse repositório pode ser visualizado nesse vídeo da FullCycle com o palestrante Rodrigo Bramas.
+
+Além disso, todas as referências de procedimentos e boas práticas estão abaixo:
+
+### Links
+* [Git Flow](https://medium.com/trainingcenter/utilizando-o-fluxo-git-flow-e63d5e0d5e04)
+* [Clean Code](https://balta.io/blog/clean-code)
+* [Clean Architecture](https://www.youtube.com/watch?v=BuSf7VsH064)
