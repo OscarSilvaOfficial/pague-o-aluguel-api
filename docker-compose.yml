@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   api:
-    container_name: container-name
+    container_name: pague-o-aluguel-api
     build: .
     ports:
       - "3000:3000"
