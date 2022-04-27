@@ -3,7 +3,6 @@ import { NotRemaningInstallmentsError } from '@/core/utils/exceptions/billing.ex
 
 describe('Billing unit tests', () => {
   const billingData = {
-    id: '1',
     name: 'Pagamento teste',
     dueDate: new Date(),
     amount: 200.0,

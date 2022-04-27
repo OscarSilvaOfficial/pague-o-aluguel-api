@@ -6,7 +6,6 @@ export enum BillingStatus {
 }
 
 export interface IBilling {
-  id?: string;
   name: string;
   dueDate: Date;
   amount: number;
@@ -16,7 +15,6 @@ export interface IBilling {
 }
 
 export class Billing {
-  private id?: string;
   private name: string;
   private dueDate: Date;
   private amount: number;
@@ -25,7 +23,6 @@ export class Billing {
   private totalOfInstallmentsPaid?: number;
 
   constructor(billing: IBilling) {
-    this.id = billing.id;
     this.name = billing.name;
     this.dueDate = billing.dueDate;
     this.amount = billing.amount;
