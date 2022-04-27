@@ -10,6 +10,7 @@ describe('Billing unit tests', () => {
     totalNumberOfInstallments: 12,
     totalOfInstallmentsPaid: 3,
   };
+
   it('Espera que a data de expiração seja hoje', () => {
     const billing = new Billing(billingData);
     expect(billing.daysToExpire()).toBe(0);
