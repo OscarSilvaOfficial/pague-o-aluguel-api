@@ -13,31 +13,6 @@ Essa aplicação serve para controle e notificação de contas que precisam ser 
   * quantidade de parcelas total
   * quantidade de parcelas pagas 
 
-## Entidades
-
-### `PaymentSession`
-```typescript
-class BillingGrouping {
-  id: number;
-  name: string;
-  description: string;
-  billings: Billing[];
-}
-```
-
-### `Billing`
-```typescript
-class Billing {
-  id: number;
-  description: string;
-  dueDate: Date;
-  amount: number;
-  status: BillingStatus;
-  totalNumberOfInstallments: number;
-  totalOfInstallmentsPaid: number;
-}
-```
-
 ## Modelo de desenvolvimento e Arquitetura
 
 Grande parte dos conceitos, arquiteturas e práticas de desenvolvimento usado nesse repositório pode ser visualizado no vídeo [Clean Architecture](https://www.youtube.com/watch?v=BuSf7VsH064) do canal [Full Cycle](https://www.youtube.com/channel/UCMUoZehUZBhLb8XaTc8TQrA) com o palestrante [Rodrigo Bramas](https://www.youtube.com/channel/UCkqOofjb7nl6V8vXrIbGtiQ).
