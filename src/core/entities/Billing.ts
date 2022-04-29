@@ -1,9 +1,5 @@
-import { NotRemaningInstallmentsError } from '../utils/exceptions/billing.exceptions';
-
-export enum BillingStatus {
-  PENDING = 'PENDING',
-  PAID = 'PAID',
-}
+import { NotRemaningInstallmentsError } from '../helpers/exceptions/billing.exceptions';
+import { BillingStatus } from '../helpers/interfaces/billingStatus';
 
 export interface IBilling {
   name: string;
