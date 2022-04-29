@@ -1,25 +1,25 @@
-import { Billing, BillingStatus } from '@/core/entities/Billing';
-import { NotRemaningInstallmentsError } from '@/core/utils/exceptions/billing.exceptions';
+import { Billing } from '@/core/entities/Billing';
+import { NotRemaningInstallmentsError } from '@/core/helpers/exceptions/billing.exceptions';
+import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
+import { tomorrow, yesterday } from '@/helpers/days';
+
+const billingData = {
+  name: 'Pagamento teste',
+  dueDate: new Date(),
+  amount: 200.0,
+  status: BillingStatus.PENDING,
+  totalNumberOfInstallments: 12,
+  totalOfInstallmentsPaid: 3,
+};
 
 describe('Billing unit tests', () => {
-  const billingData = {
-    name: 'Pagamento teste',
-    dueDate: new Date(),
-    amount: 200.0,
-    status: BillingStatus.PENDING,
-    totalNumberOfInstallments: 12,
-    totalOfInstallmentsPaid: 3,
-  };
-
   it('Espera que a data de expiração seja hoje', () => {
     const billing = new Billing(billingData);
     expect(billing.daysToExpire()).toBe(0);
   });
 
   it('Espera que a data de expiração seja amanhã', () => {
-    billingData.dueDate = new Date(
-      new Date().setDate(new Date().getUTCDate() + 1),
-    );
+    billingData.dueDate = new Date(tomorrow);
     const billing = new Billing(billingData);
     expect(billing.daysToExpire()).toBe(1);
   });
@@ -30,9 +30,7 @@ describe('Billing unit tests', () => {
   });
 
   it('Verifica data já expirada', () => {
-    billingData.dueDate = new Date(
-      new Date().setDate(new Date().getUTCDate() - 1),
-    );
+    billingData.dueDate = new Date(yesterday);
     const billing = new Billing(billingData);
     expect(billing.isExpired()).toBe(true);
   });
