@@ -1,5 +1,5 @@
-import { BillingGroupRepositoryContract } from '@/adapters/repositories/contracts/billingGroupRepositoryContract';
-import { BillingRepositoryContract } from '@/adapters/repositories/contracts/billingRepositoryContract';
+import { BillingGroupRepositoryContract } from '@/adapters/contracts/billingGroupRepositoryContract';
+import { BillingRepositoryContract } from '@/adapters/contracts/billingRepositoryContract';
 import { Billing } from '../entities/Billing';
 import { BillingGrouping } from '../entities/BillingGrouping';
 import { ICreateBillingData } from './helpers/interfaces/createBillingData';
