@@ -1,10 +1,10 @@
 {
-  "name": "project-name",
-  "version": "0.0.1",
+  "name": "pague-o-aluguel-api",
+  "version": "1.0.0",
   "description": "",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
