@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "test": "jest",
+    "test:unit": "jest --testPathPattern=tests/unit",
+    "test:integration": "jest --testPathPattern=tests/integrations",
     "prisma-generate": "npx prisma generate --schema ./schema.prisma",
     "prisma-migrate-dev": "npx prisma migrate dev",
     "prisma-migrate-prod": "npx prisma migrate deploy"
