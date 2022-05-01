@@ -5,20 +5,14 @@ import {
 } from '@/adapters/presenters/billing.presenter';
 import { BillingRepositoryContract } from '../contracts/billingRepositoryContract';
 import { DBDriverContract } from '../contracts/dbDriverContract';
-import { IBillingPresenter } from '../presenters/helpers/interfaces/billing';
+import { BillingDatabaseForm } from '../presenters/helpers/interfaces/billing';
 
 export class BillingRepository implements BillingRepositoryContract {
-  constructor(private db: DBDriverContract<IBillingPresenter, any>) {}
+  constructor(private db: DBDriverContract<BillingDatabaseForm, any>) {}
 
-  async create(billingEntity: Billing): Promise<object> {
-    const billing = await this.db.create({
-      name: billingEntity.name,
-      amount: billingEntity.amount,
-      dueDate: billingEntity.dueDate,
-      status: billingEntity.status,
-      totalNumberOfInstallments: billingEntity.totalNumberOfInstallments,
-      totalOfInstallmentsPaid: billingEntity.totalOfInstallmentsPaid,
-    });
+  async create(billingEntity: Billing): Promise<BillingDatabaseForm> {
+    const billingDatabaseForm = BillingPresenter.convertBillingEntityToDatabaseResponse(billingEntity);
+    const billing = await this.db.create(billingDatabaseForm);
     const presentation = new BillingPresenter(billing, ResponseTypes.JSON);
     return presentation.getBilling();
   }

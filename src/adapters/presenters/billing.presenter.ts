@@ -1,4 +1,5 @@
-import { IBillingPresenter } from './helpers/interfaces/billing';
+import { Billing } from '@/core/entities/Billing';
+import { BillingDatabaseForm } from './helpers/interfaces/billing';
 
 export enum ResponseTypes {
   JSON,
@@ -6,7 +7,7 @@ export enum ResponseTypes {
 
 export class BillingPresenter {
   constructor(
-    private billing: IBillingPresenter,
+    private billing: BillingDatabaseForm,
     private responseType: ResponseTypes,
   ) {}
 
@@ -18,5 +19,16 @@ export class BillingPresenter {
     return {
       [ResponseTypes.JSON]: this.jsonResponse(),
     }[this.responseType];
+  }
+
+  static convertBillingEntityToDatabaseResponse(billingEntity: Billing): BillingDatabaseForm {
+    return {
+      name: billingEntity.name,
+      amount: billingEntity.amount,
+      dueDate: billingEntity.dueDate,
+      status: billingEntity.status,
+      totalNumberOfInstallments: billingEntity.totalNumberOfInstallments,
+      totalOfInstallmentsPaid: billingEntity.totalOfInstallmentsPaid,
+    }
   }
 }
