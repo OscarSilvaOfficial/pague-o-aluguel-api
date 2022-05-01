@@ -1,4 +1,4 @@
-import { BillingDatabaseForm } from '@/adapters/presenters/helpers/interfaces/billing';
+import { BillingDatabaseForm } from '@/helpers/interfaces/presenters/billing';
 import { BillingRepository } from '@/adapters/repositories/billingRepository';
 import { PrismaClient } from '@prisma/client';
 import { PrismaDB } from '@/infra/db/prisma.db';

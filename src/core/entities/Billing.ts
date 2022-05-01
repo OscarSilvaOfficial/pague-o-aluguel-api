@@ -1,6 +1,6 @@
 import { IBilling } from '@/helpers/interfaces/entities';
-import { NotRemaningInstallmentsError } from '../helpers/exceptions/billing.exceptions';
-import { BillingStatus } from '../helpers/interfaces/billingStatus';
+import { NotRemaningInstallmentsError } from '../../helpers/interfaces/exceptions/billing.exceptions';
+import { BillingStatus } from '../../helpers/interfaces/billingStatus';
 
 export class Billing {
   private _name: string;

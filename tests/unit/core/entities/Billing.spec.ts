@@ -1,5 +1,5 @@
 import { Billing } from '@/core/entities/Billing';
-import { NotRemaningInstallmentsError } from '@/core/helpers/exceptions/billing.exceptions';
+import { NotRemaningInstallmentsError } from '@/helpers/interfaces/exceptions/billing.exceptions';
 import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
 import { tomorrow, yesterday } from '@/helpers/days';
 

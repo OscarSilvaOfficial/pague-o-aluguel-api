@@ -1,5 +1,5 @@
 import { Billing } from '@/core/entities/Billing';
-import { BillingDatabaseForm } from './helpers/interfaces/billing';
+import { BillingDatabaseForm } from '../../helpers/interfaces/presenters/billing';
 
 export enum ResponseTypes {
   JSON,

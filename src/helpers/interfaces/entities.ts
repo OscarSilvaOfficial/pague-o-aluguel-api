@@ -1,4 +1,4 @@
-import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
+import { BillingStatus } from './billingStatus';
 
 export interface IBilling {
   name: string;

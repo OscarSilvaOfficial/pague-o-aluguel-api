@@ -1,9 +1,9 @@
 import { BillingGroupRepositoryContract } from '@/adapters/contracts/billingGroupRepositoryContract';
 import { BillingRepositoryContract } from '@/adapters/contracts/billingRepositoryContract';
+import { ICreateBillingData } from '@/helpers/interfaces/useCases/createBillingData';
+import { ICreateBillingGroupData } from '@/helpers/interfaces/useCases/createBillingGroupData';
 import { Billing } from '../entities/Billing';
 import { BillingGrouping } from '../entities/BillingGrouping';
-import { ICreateBillingData } from './helpers/interfaces/createBillingData';
-import { ICreateBillingGroupData } from './helpers/interfaces/createBillingGroupData';
 
 export class createBillingGroupUseCase {
   constructor(

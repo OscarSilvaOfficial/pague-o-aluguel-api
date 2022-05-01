@@ -5,7 +5,7 @@ import {
 } from '@/adapters/presenters/billing.presenter';
 import { BillingRepositoryContract } from '../contracts/billingRepositoryContract';
 import { DBDriverContract } from '../contracts/dbDriverContract';
-import { BillingDatabaseForm } from '../presenters/helpers/interfaces/billing';
+import { BillingDatabaseForm } from '../../helpers/interfaces/presenters/billing';
 
 export class BillingRepository implements BillingRepositoryContract {
   constructor(private db: DBDriverContract<BillingDatabaseForm, any>) {}
