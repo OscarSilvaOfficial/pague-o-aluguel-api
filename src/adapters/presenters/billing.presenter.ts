@@ -10,7 +10,7 @@ export class BillingPresenter {
     private responseType: ResponseTypes,
   ) {}
 
-  private jsonResponse(): IBillingPresenter {
+  private jsonResponse() {
     return this.billing;
   }
 

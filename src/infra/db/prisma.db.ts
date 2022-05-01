@@ -1,31 +1,39 @@
 import { DBDriverContract } from '@/adapters/contracts/dbDriverContract';
-import { PrismaClient } from '@prisma/client';
 
-export class PrismaDB implements DBDriverContract {
-  constructor(private readonly db: PrismaClient) {}
+interface DBMethods {
+  findMany: () => Promise<any[]>;
+  findUnique: (filter: object) => Promise<any>;
+  create: (entity: any) => Promise<any>;
+  update: (args: object) => Promise<any>;
+}
 
-  async getAll(): Promise<any[]> {
-    return await this.db.billing.findMany();
+export class PrismaDB<Serilize, Model extends DBMethods>
+  implements DBDriverContract<Serilize, Model>
+{
+  constructor(private readonly model: Model) {}
+
+  async getAll(): Promise<Serilize[]> {
+    return await this.model.findMany();
   }
 
-  async getById(id: number): Promise<any> {
-    return await this.db.billing.findUnique({
+  async get(filter: object): Promise<Serilize> {
+    return await this.model.findUnique({
       where: {
-        id,
+        filter,
       },
     });
   }
 
-  create(entity: any): Promise<any> {
-    return this.db.billing.create({
+  async create(entity: object): Promise<Serilize> {
+    return await this.model.create({
       data: entity,
     });
   }
 
-  update(id: number, entity: any): Promise<any> {
-    return this.db.billing.update({
+  async update(filter: object, entity: object): Promise<Serilize> {
+    return await this.model.update({
       where: {
-        id: id,
+        filter,
       },
       data: entity,
     });

@@ -1,7 +1,7 @@
 import { Billing } from '@/core/entities/Billing';
 import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
 import { IBilling } from '@/helpers/interfaces/entities';
-import { prismaDBFactory } from '@/infra/factories/db.factory';
+import { BillingRepositoryFactory } from '@/adapters/repositories/factories/repositories.factory';
 
 const billingData: IBilling = {
   name: 'Pagamento teste',
@@ -12,12 +12,12 @@ const billingData: IBilling = {
   totalOfInstallmentsPaid: 0,
 };
 
-const billingRepository = prismaDBFactory();
+const billingRepository = BillingRepositoryFactory();
 
 describe('Testa o repositório de billing', () => {
   it('Deve criar um billing', async () => {
     const billing = new Billing(billingData);
-    const createdBilling: any = await billingRepository.create(billing);
-    expect(createdBilling.dueDate).toBeTruthy();
+    const createdBilling = await billingRepository.create(billing);
+    expect(createdBilling).toBeTruthy();
   });
 });

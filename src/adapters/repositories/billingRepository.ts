@@ -2,12 +2,13 @@ import { Billing } from '@/core/entities/Billing';
 import {
   BillingPresenter,
   ResponseTypes,
-} from '@/presenters/billing.presenter';
+} from '@/adapters/presenters/billing.presenter';
 import { BillingRepositoryContract } from '../contracts/billingRepositoryContract';
 import { DBDriverContract } from '../contracts/dbDriverContract';
+import { IBillingPresenter } from '../presenters/helpers/interfaces/billing';
 
 export class BillingRepository implements BillingRepositoryContract {
-  constructor(private db: DBDriverContract) {}
+  constructor(private db: DBDriverContract<IBillingPresenter, any>) {}
 
   async create(billingEntity: Billing): Promise<object> {
     const billing = await this.db.create({
