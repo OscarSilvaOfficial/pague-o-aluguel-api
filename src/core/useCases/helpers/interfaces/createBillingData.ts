@@ -2,7 +2,7 @@ import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
 
 export interface ICreateBillingData {
   name: string;
-  dueDate: Date;
+  dueDate: number;
   amount: number;
   status: BillingStatus;
   totalNumberOfInstallments: number;

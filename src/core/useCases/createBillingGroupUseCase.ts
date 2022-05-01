@@ -17,8 +17,16 @@ export class createBillingGroupUseCase {
     const billings: Billing[] = [];
     for (const billingData of billingsData) {
       const billing = new Billing(billingData);
-      const createdBilling = await this.billingRepository.create(billing);
-      billings.push(createdBilling);
+      const createdBilling: any = await this.billingRepository.create(billing);
+      const billingEntity = new Billing({
+        name: createdBilling.name,
+        amount: createdBilling.amount,
+        dueDate: createdBilling.dueDate,
+        status: createdBilling.status,
+        totalNumberOfInstallments: createdBilling.totalNumberOfInstallments,
+        totalOfInstallmentsPaid: createdBilling.totalOfInstallmentsPaid,
+      });
+      billings.push(billingEntity);
     }
     return billings;
   }

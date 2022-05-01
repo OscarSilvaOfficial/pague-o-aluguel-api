@@ -5,7 +5,7 @@ CREATE TYPE "BillingStatus" AS ENUM ('PENDING', 'PAID');
 CREATE TABLE "Billing" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
-    "dueDate" TIMESTAMP(3) NOT NULL,
+    "dueDate" INTEGER NOT NULL,
     "amount" DOUBLE PRECISION NOT NULL,
     "status" "BillingStatus" NOT NULL,
     "totalOfInstallmentsPaid" DOUBLE PRECISION,

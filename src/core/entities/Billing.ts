@@ -4,7 +4,7 @@ import { BillingStatus } from '../helpers/interfaces/billingStatus';
 
 export class Billing {
   private _name: string;
-  private _dueDate: Date;
+  private _dueDate: number;
   private _amount: number;
   private _status: BillingStatus;
   private _totalNumberOfInstallments?: number;
@@ -24,8 +24,13 @@ export class Billing {
   }
 
   daysToExpire(): number {
-    const today = new Date();
-    return this._dueDate.getUTCDate() - today.getUTCDate();
+    const date1 = new Date(Date.now());
+    const date2 = new Date(this._dueDate);
+    const oneDay = 1000 * 60 * 60 * 24;
+    const diffInTime = date2.getTime() - date1.getTime();
+    const diffInDays = Math.round(diffInTime / oneDay);
+
+    return parseInt(diffInDays.toFixed(0));
   }
 
   isExpired(): boolean {
@@ -49,7 +54,7 @@ export class Billing {
     return this._name;
   }
 
-  get dueDate(): Date {
+  get dueDate(): number {
     return this._dueDate;
   }
 

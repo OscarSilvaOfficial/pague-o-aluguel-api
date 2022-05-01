@@ -9,7 +9,7 @@
     "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "test": "jest",
-    "prisma-generate": "npx prisma generate",
+    "prisma-generate": "npx prisma generate --schema ./schema.prisma",
     "prisma-migrate-dev": "npx prisma migrate dev",
     "prisma-migrate-prod": "npx prisma migrate deploy"
   },

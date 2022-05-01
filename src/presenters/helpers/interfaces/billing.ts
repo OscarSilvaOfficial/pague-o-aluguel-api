@@ -1,8 +1,9 @@
 import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
 
-export interface IBilling {
+export interface IBillingPresenter {
+  id?: number;
   name: string;
-  dueDate: number;
+  dueDate: Date;
   amount: number;
   status: BillingStatus;
   totalNumberOfInstallments: number;

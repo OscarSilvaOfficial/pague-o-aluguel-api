@@ -15,17 +15,17 @@ enum BillingStatus {
 model Billing {
   id                        Int     @id @default(autoincrement())
   name                      String
-  dueDate                   DateTime
+  dueDate                   Int
   amount                    Float
   status                    BillingStatus
   totalOfInstallmentsPaid   Float?
   totalNumberOfInstallments Int?
-  billingGrupingId          Int
-  billingGruping            BillingGruping   @relation(fields: [billingGrupingId], references: [id])
+  billingGrupingId          Int?
+  billingGruping            BillingGruping?   @relation(fields: [billingGrupingId], references: [id])
 }
 
 model BillingGruping {
-  id    Int     @id @default(autoincrement())
-  name  String
-  posts Billing[]
+  id       Int     @id @default(autoincrement())
+  name     String
+  billings Billing[]
 }

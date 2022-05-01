@@ -5,7 +5,7 @@ import { tomorrow, yesterday } from '@/helpers/days';
 
 const billingData = {
   name: 'Pagamento teste',
-  dueDate: new Date(),
+  dueDate: Date.now(),
   amount: 200.0,
   status: BillingStatus.PENDING,
   totalNumberOfInstallments: 12,
@@ -19,7 +19,7 @@ describe('Billing unit tests', () => {
   });
 
   it('Espera que a data de expiração seja amanhã', () => {
-    billingData.dueDate = new Date(tomorrow);
+    billingData.dueDate = tomorrow;
     const billing = new Billing(billingData);
     expect(billing.daysToExpire()).toBe(1);
   });
@@ -30,7 +30,7 @@ describe('Billing unit tests', () => {
   });
 
   it('Verifica data já expirada', () => {
-    billingData.dueDate = new Date(yesterday);
+    billingData.dueDate = yesterday;
     const billing = new Billing(billingData);
     expect(billing.isExpired()).toBe(true);
   });

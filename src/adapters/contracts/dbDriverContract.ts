@@ -1,6 +1,6 @@
-export interface DBDriverContract<T> {
-  getAll(): Promise<T[]>;
-  getById(arg: any): Promise<T>;
-  create(entity: T): Promise<T>;
-  update(entity: T): Promise<T>;
+export interface DBDriverContract {
+  getAll(): Promise<any[]>;
+  getById(arg: any): Promise<any>;
+  create(entity: any): Promise<any>;
+  update(id: number, entity: any): Promise<any>;
 }
