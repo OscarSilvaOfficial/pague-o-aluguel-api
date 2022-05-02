@@ -1,7 +1,7 @@
 import { Billing } from '@/core/entities/Billing';
-import { BillingStatus } from '@/core/helpers/interfaces/billingStatus';
 import { IBilling } from '@/helpers/interfaces/entities';
 import { BillingRepositoryFactory } from '@/adapters/repositories/factories/repositories.factory';
+import { BillingStatus } from '@/helpers/interfaces/billingStatus';
 
 const billingData: IBilling = {
   name: 'Pagamento teste',
