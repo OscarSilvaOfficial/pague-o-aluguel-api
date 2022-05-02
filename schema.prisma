@@ -15,7 +15,7 @@ enum BillingStatus {
 model Billing {
   id                        Int     @id @default(autoincrement())
   name                      String
-  dueDate                   Int
+  dueDate                   BigInt
   amount                    Float
   status                    BillingStatus
   totalOfInstallmentsPaid   Float?
@@ -25,7 +25,8 @@ model Billing {
 }
 
 model BillingGruping {
-  id       Int     @id @default(autoincrement())
-  name     String
-  billings Billing[]
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String
+  billings    Billing[]
 }
