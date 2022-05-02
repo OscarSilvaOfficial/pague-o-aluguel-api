@@ -1,5 +1,5 @@
 import { Billing } from '@/core/entities/Billing';
 
-export interface BillingRepositoryContract {
-  create(billing: Billing): Promise<object>;
+export interface BillingRepositoryContract<T> {
+  create(billing: Billing): Promise<T>;
 }

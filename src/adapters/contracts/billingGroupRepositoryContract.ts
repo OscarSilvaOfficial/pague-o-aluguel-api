@@ -1,5 +1,5 @@
 import { BillingGrouping } from '@/core/entities/BillingGrouping';
 
-export interface BillingGroupRepositoryContract {
-  create(billingGrouping: BillingGrouping): Promise<object>;
+export interface BillingGroupRepositoryContract<T> {
+  create(billingGrouping: BillingGrouping): Promise<T>;
 }

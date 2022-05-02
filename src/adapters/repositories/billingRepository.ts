@@ -7,7 +7,7 @@ import { BillingRepositoryContract } from '../contracts/billingRepositoryContrac
 import { DBDriverContract } from '../contracts/dbDriverContract';
 import { BillingDatabaseForm } from '../../helpers/interfaces/presenters/billing';
 
-export class BillingRepository implements BillingRepositoryContract {
+export class BillingRepository implements BillingRepositoryContract<BillingDatabaseForm> {
   constructor(private db: DBDriverContract<BillingDatabaseForm, any>) {}
 
   async create(billingEntity: Billing): Promise<BillingDatabaseForm> {
