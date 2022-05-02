@@ -1,9 +1,6 @@
 import { Billing } from '@/core/entities/Billing';
+import { ResponseTypes } from '@/helpers/interfaces/presenters/response.types';
 import { BillingDatabaseForm } from '../../helpers/interfaces/presenters/billing';
-
-export enum ResponseTypes {
-  JSON,
-}
 
 export class BillingPresenter {
   constructor(
