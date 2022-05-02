@@ -24,9 +24,10 @@ export class PrismaDB<Serilize, Model extends DBMethods>
     });
   }
 
-  async create(entity: object): Promise<Serilize> {
+  async create(entity: object, args: object): Promise<Serilize> {
     return await this.model.create({
       data: entity,
+      ...args
     });
   }
 
