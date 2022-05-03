@@ -11,8 +11,8 @@ export class AppRouter {
     this.getAllBillingGroupingUseCase = new GetAllBillingGroupingUseCase(repository)
   }
 
-  @Get()
+  @Get('/groups')
   async getAllBillingGroupings() {  
-    return await this.getAllBillingGroupingUseCase.execute();
+    return await this.getAllBillingGroupingUseCase.execute(false);
   }
 }

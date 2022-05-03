@@ -7,8 +7,8 @@ export class GetAllBillingGroupingUseCase {
     private billingGroupRepository: BillingGroupRepositoryContract<GroupBillingDatabaseForm>,
   ) {}
 
-  async execute(): Promise<GroupBillingDatabaseForm[]> {
-    const billingGroupings = await this.billingGroupRepository.all();
+  async execute(billings: boolean): Promise<GroupBillingDatabaseForm[]> {
+    const billingGroupings = await this.billingGroupRepository.all(billings);
     return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
   }
 }

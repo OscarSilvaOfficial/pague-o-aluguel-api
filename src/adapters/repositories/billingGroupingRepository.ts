@@ -8,10 +8,10 @@ import { ResponseTypes } from '@/helpers/interfaces/presenters/response.types';
 export class BillingGroupingRepository implements BillingGroupRepositoryContract<GroupBillingDatabaseForm> {
   constructor(private db: DBDriverContract<GroupBillingDatabaseForm, any>) {}
 
-  async all(): Promise<GroupBillingDatabaseForm[]> {
+  async all(billings: boolean): Promise<GroupBillingDatabaseForm[]> {
     return await this.db.getAll({
       include: {
-        billings: true
+        billings: billings
       }
     });
   }
