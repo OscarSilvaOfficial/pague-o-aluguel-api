@@ -10,7 +10,19 @@ export class BillingGroupingPresenter {
   ) {}
 
   private jsonResponse() {
-    return this.groupBilling;
+    return {
+      id: this.groupBilling.id,
+      name: this.groupBilling.name,
+      description: this.groupBilling.description,
+      billings: this.groupBilling.billings.map((billing) => ({
+        name: billing.name,
+        dueDate: billing.dueDate,
+        amount: billing.amount,
+        status: billing.status,
+        totalNumberOfInstallments: billing.totalNumberOfInstallments,
+        totalOfInstallmentsPaid: billing.totalOfInstallmentsPaid,
+      })),
+    };
   }
 
   getBilling() {
@@ -36,7 +48,7 @@ export class BillingGroupingPresenter {
     }
     return {
       name: billingEntity.name,
-      description: billingEntity.description
+      description: billingEntity.description,
     };
   }
 }
