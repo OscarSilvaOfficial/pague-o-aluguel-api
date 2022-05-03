@@ -7,17 +7,6 @@ const billingGroupRepository = repositories.BillingGroupingRepositoryFactory()
 const useCase = new CreateBillingGroupUseCase(billingGroupRepository)
 
 describe("Teste dos casos de uso para criação de grupo de pagamento", () => {
-  
-  it("Deve criar um grupo de pagamento sem pagamento", async () => {
-    const billingGroupingData = {
-      name: "Grupo de pagamento 1",
-      description: "Grupo de pagamento 1"
-    };
-
-    const response = await useCase.execute(billingGroupingData)
-
-    expect(response.name).toBe(billingGroupingData.name)
-  })
 
   it("Deve criar um grupo de pagamento com pagamento", async () => {
     const billingsData = [
@@ -27,6 +16,14 @@ describe("Teste dos casos de uso para criação de grupo de pagamento", () => {
         amount: 100.11,
         status: BillingStatus.PENDING,
         totalNumberOfInstallments: 12,
+        totalOfInstallmentsPaid: 0
+      }),
+      new Billing({
+        name: "Pagamento 2",
+        dueDate: Date.now(),
+        amount: 100.12,
+        status: BillingStatus.PENDING,
+        totalNumberOfInstallments: 11,
         totalOfInstallmentsPaid: 0
       }),
     ]

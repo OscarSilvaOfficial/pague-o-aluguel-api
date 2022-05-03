@@ -1,4 +1,5 @@
 import { BillingGroupRepositoryContract } from '@/adapters/contracts/billingGroupRepositoryContract';
+import { BillingGroupingPresenter } from '@/adapters/presenters/billingGrouping.presenter';
 import { GroupBillingDatabaseForm } from '@/helpers/interfaces/presenters/groupBilling';
 
 export class GetAllBillingGroupingUseCase {
@@ -7,6 +8,7 @@ export class GetAllBillingGroupingUseCase {
   ) {}
 
   async execute(): Promise<GroupBillingDatabaseForm[]> {
-    return await this.billingGroupRepository.all();
+    const billingGroupings = await this.billingGroupRepository.all();
+    return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
   }
 }

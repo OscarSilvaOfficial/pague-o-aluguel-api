@@ -9,7 +9,11 @@ export class BillingGroupingRepository implements BillingGroupRepositoryContract
   constructor(private db: DBDriverContract<GroupBillingDatabaseForm, any>) {}
 
   async all(): Promise<GroupBillingDatabaseForm[]> {
-    return await this.db.getAll();
+    return await this.db.getAll({
+      include: {
+        billings: true
+      }
+    });
   }
 
   async create(entity: BillingGrouping): Promise<GroupBillingDatabaseForm> {

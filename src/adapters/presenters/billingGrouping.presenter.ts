@@ -9,6 +9,25 @@ export class BillingGroupingPresenter {
     private responseType: ResponseTypes,
   ) {}
 
+  static serializeResponseAPI(
+    groupBillings: GroupBillingDatabaseForm[],
+  ): any[] {
+    return groupBillings.map((group) => ({
+      id: group.id,
+      name: group.name,
+      description: group.description,
+      billings: group.billings.map((billing) => ({
+        id: billing.id,
+        name: billing.name,
+        dueDate: `${billing.dueDate}`,
+        amount: billing.amount,
+        status: billing.status,
+        totalNumberOfInstallments: billing.totalNumberOfInstallments,
+        totalOfInstallmentsPaid: billing.totalOfInstallmentsPaid,
+      })),
+    }));
+  }
+
   private jsonResponse() {
     return {
       id: this.groupBilling.id,

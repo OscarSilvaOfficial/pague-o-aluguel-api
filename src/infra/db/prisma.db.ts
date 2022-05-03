@@ -1,7 +1,7 @@
 import { DBDriverContract } from '@/adapters/contracts/dbDriverContract';
 
 interface DBMethods {
-  findMany: () => Promise<any[]>;
+  findMany: (args: object) => Promise<any[]>;
   findUnique: (filter: object) => Promise<any>;
   create: (entity: any) => Promise<any>;
   update: (args: object) => Promise<any>;
@@ -12,8 +12,10 @@ export class PrismaDB<Serilize, Model extends DBMethods>
 {
   constructor(private readonly model: Model) {}
 
-  async getAll(): Promise<Serilize[]> {
-    return await this.model.findMany();
+  async getAll(args: object = {}): Promise<Serilize[]> {
+    return await this.model.findMany({
+      ...args,
+    });
   }
 
   async get(filter: object): Promise<Serilize> {
@@ -27,7 +29,7 @@ export class PrismaDB<Serilize, Model extends DBMethods>
   async create(entity: object, args: object): Promise<Serilize> {
     return await this.model.create({
       data: entity,
-      ...args
+      ...args,
     });
   }
 
