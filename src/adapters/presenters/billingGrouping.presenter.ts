@@ -11,7 +11,7 @@ export class BillingGroupingPresenter {
 
   static serializeResponseAPI(
     groupBillings: GroupBillingDatabaseForm[],
-  ): any[] {
+  ): GroupBillingDatabaseForm[] {
     return groupBillings.map((group) => ({
       id: group.id,
       name: group.name,
@@ -19,7 +19,7 @@ export class BillingGroupingPresenter {
       billings: group.billings.map((billing) => ({
         id: billing.id,
         name: billing.name,
-        dueDate: `${billing.dueDate}`,
+        dueDate: parseInt(`${billing.dueDate}`),
         amount: billing.amount,
         status: billing.status,
         totalNumberOfInstallments: billing.totalNumberOfInstallments,
