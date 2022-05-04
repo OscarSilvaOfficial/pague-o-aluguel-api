@@ -1,15 +1,20 @@
 import { BillingGroupRepositoryContract } from '@/adapters/contracts/billingGroupRepositoryContract';
-import { BillingGroupingPresenter } from '@/adapters/presenters/billingGrouping.presenter';
 import { GroupBillingDatabaseForm } from '@/helpers/interfaces/presenters/groupBilling';
-import { GetAllBillingGroupingData } from '@/helpers/interfaces/useCases/getAllBillingGroupingData';
+import { GetAllBillingGroupingUseCaseOptions } from '@/helpers/interfaces/useCases/getAllBillingGroupingUseCaseOptions';
+import { Billing } from '../entities/Billing';
+import { BillingGrouping } from '../entities/BillingGrouping';
 
 export class GetAllBillingGroupingUseCase {
   constructor(
     private billingGroupRepository: BillingGroupRepositoryContract<GroupBillingDatabaseForm>,
   ) {}
 
-  async execute(billings: boolean): Promise<GetAllBillingGroupingData[]> {
-    const billingGroupings = await this.billingGroupRepository.all(billings);
-    return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
+  async execute(options: GetAllBillingGroupingUseCaseOptions): Promise<BillingGrouping[]> {
+    const response = await this.billingGroupRepository.all(options.withBillings);
+    return response.map(billingGrouping => new BillingGrouping({
+      name: billingGrouping.name,
+      description: billingGrouping.description,
+      billings: billingGrouping.billings ? billingGrouping.billings.map(billing => new Billing(billing)) : null,
+    }));
   }
 }
