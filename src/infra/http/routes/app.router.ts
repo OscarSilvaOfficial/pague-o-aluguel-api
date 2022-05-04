@@ -1,7 +1,7 @@
 import { BillingGroupingPresenter } from '@/adapters/presenters/billingGrouping.presenter';
 import { BillingGroupingRepositoryFactory } from '@/adapters/repositories/factories/repositories.factory';
 import { GetAllBillingGroupingUseCase } from '@/core/useCases/getAllBillingGroupingUseCase';
-import { BillingGroupingAPIResponse } from '@/helpers/interfaces/useCases/billingGroupingAPIResponse';
+import { BillingGroupingAPIResponse } from '@/helpers/interfaces/infra/billingGroupingAPIResponse';
 
 import { Controller, Get, Query } from '@nestjs/common';
 
