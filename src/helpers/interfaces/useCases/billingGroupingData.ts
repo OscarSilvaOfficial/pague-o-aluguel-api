@@ -1,6 +1,6 @@
 import { IBilling } from "../entities";
 
-export interface AllBillingGroupingData {
+export interface BillingGroupingData {
   id?: number;
   name: string;
   description: string;
