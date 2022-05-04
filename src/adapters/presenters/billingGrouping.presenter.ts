@@ -34,16 +34,19 @@ export class BillingGroupingPresenter {
   static convertBillingGroupingEntityToDatabaseResponse(
     billingEntity: BillingGrouping,
   ) {
-    const response: any = {
+    const defaultResponse = {
       name: billingEntity.name,
       description: billingEntity.description,
     };
-    if (billingEntity.billings) {
-      response.billings.create = billingEntity.billings.map((billing) =>
-        BillingPresenter.convertBillingEntityToDatabaseResponse(billing),
-      );
+    if (!billingEntity.billings) return defaultResponse;
+    return {
+      ...defaultResponse,
+      billings: {
+        create: billingEntity.billings.map((billing) =>
+          BillingPresenter.convertBillingEntityToDatabaseResponse(billing),
+        )
+      }
     }
-    return response
   }
 
   static serializeResponseAPI(
