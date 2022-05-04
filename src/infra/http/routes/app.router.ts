@@ -1,7 +1,7 @@
 import { BillingGroupingPresenter } from '@/adapters/presenters/billingGrouping.presenter';
 import { BillingGroupingRepositoryFactory } from '@/adapters/repositories/factories/repositories.factory';
 import { GetAllBillingGroupingUseCase } from '@/core/useCases/getAllBillingGroupingUseCase';
-import { BillingGroupingData } from '@/helpers/interfaces/useCases/billingGroupingData';
+import { BillingGroupingAPIResponse } from '@/helpers/interfaces/useCases/billingGroupingAPIResponse';
 
 import { Controller, Get, Query } from '@nestjs/common';
 
@@ -15,7 +15,7 @@ export class AppRouter {
   }
 
   @Get('/groups')
-  async getAllBillingGroupings(@Query('billings') billings: boolean): Promise<BillingGroupingData[]> { 
+  async getAllBillingGroupings(@Query('billings') billings: boolean): Promise<BillingGroupingAPIResponse[]> { 
     const withBillings = billings || false
     const billingGroupings = await this.getAllBillingGroupingUseCase.execute({ withBillings });
     return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
