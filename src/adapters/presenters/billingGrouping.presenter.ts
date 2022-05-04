@@ -9,31 +9,6 @@ export class BillingGroupingPresenter {
     private responseType: ResponseTypes,
   ) {}
 
-  static serializeResponseAPI(
-    groupBillings: GroupBillingDatabaseForm[],
-  ): GroupBillingDatabaseForm[] {
-    return groupBillings.map((group) => {
-      const defaultResponse = {
-        id: group.id,
-        name: group.name,
-        description: group.description,
-      }
-      if (!group.billings) return defaultResponse
-      return {
-        ...defaultResponse,
-        billings: group.billings.map((billing) => ({
-          id: billing.id,
-          name: billing.name,
-          dueDate: parseInt(`${billing.dueDate}`),
-          amount: billing.amount,
-          status: billing.status,
-          totalNumberOfInstallments: billing.totalNumberOfInstallments,
-          totalOfInstallmentsPaid: billing.totalOfInstallmentsPaid,
-        })),
-      };
-    });
-  }
-
   private jsonResponse() {
     return {
       id: this.groupBilling.id,
@@ -69,5 +44,30 @@ export class BillingGroupingPresenter {
       );
     }
     return response
+  }
+
+  static serializeResponseAPI(
+    groupBillings: GroupBillingDatabaseForm[],
+  ): GroupBillingDatabaseForm[] {
+    return groupBillings.map((group) => {
+      const defaultResponse = {
+        id: group.id,
+        name: group.name,
+        description: group.description,
+      }
+      if (!group.billings) return defaultResponse
+      return {
+        ...defaultResponse,
+        billings: group.billings.map((billing) => ({
+          id: billing.id,
+          name: billing.name,
+          dueDate: parseInt(`${billing.dueDate}`),
+          amount: billing.amount,
+          status: billing.status,
+          totalNumberOfInstallments: billing.totalNumberOfInstallments,
+          totalOfInstallmentsPaid: billing.totalOfInstallmentsPaid,
+        })),
+      };
+    });
   }
 }
