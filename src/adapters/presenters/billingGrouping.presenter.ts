@@ -59,21 +59,18 @@ export class BillingGroupingPresenter {
   static convertBillingGroupingEntityToDatabaseResponse(
     billingEntity: BillingGrouping,
   ) {
+    let addBilling = [];
     if (billingEntity.billings) {
-      const addBilling = billingEntity.billings.map((billing) =>
+      addBilling = billingEntity.billings.map((billing) =>
         BillingPresenter.convertBillingEntityToDatabaseResponse(billing),
       );
-      return {
-        name: billingEntity.name,
-        description: billingEntity.description,
-        billings: {
-          create: addBilling,
-        },
-      };
     }
     return {
       name: billingEntity.name,
       description: billingEntity.description,
+      billings: {
+        create: addBilling,
+      },
     };
   }
 }
