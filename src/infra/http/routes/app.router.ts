@@ -15,8 +15,9 @@ export class AppRouter {
   }
 
   @Get('/groups')
-  async getAllBillingGroupings(@Query('billings') billings: boolean = false): Promise<BillingGroupingData[]> {  
-    const billingGroupings = await this.getAllBillingGroupingUseCase.execute({ withBillings: billings });
+  async getAllBillingGroupings(@Query('billings') billings: boolean): Promise<BillingGroupingData[]> { 
+    const withBillings = billings || false
+    const billingGroupings = await this.getAllBillingGroupingUseCase.execute({ withBillings });
     return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
   }
 }
