@@ -25,9 +25,7 @@ export class CreateBillingGroupUseCase {
     return new BillingGrouping({
       name: createdBillingGrouping.name,
       description: createdBillingGrouping.description,
-      billings: createdBillingGrouping.billings.map(billing => {
-        return new Billing(billing);
-      }),
+      billings: createdBillingGrouping.billings.map(billing => new Billing(billing)),
     });
   }
 
