@@ -3,9 +3,9 @@ import { BillingGroupingRepositoryFactory } from '@/adapters/repositories/factor
 import { GetAllBillingGroupingUseCase } from '@/core/useCases/getAllBillingGroupingUseCase';
 import { BillingGroupingAPIResponse } from '@/helpers/interfaces/infra/billingGroupingAPIResponse';
 
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller as Router, Get, Query } from '@nestjs/common';
 
-@Controller()
+@Router()
 export class AppRouter {
   getAllBillingGroupingUseCase: GetAllBillingGroupingUseCase
 
