@@ -18,11 +18,13 @@
     "prisma-migrate-prod": "npx prisma migrate deploy"
   },
   "dependencies": {
+    "@nestjs/swagger": "^5.2.1",
     "@prisma/client": "^3.13.0",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "express": "4",
-    "express-decorators": "^1.2.1"
+    "express-decorators": "^1.2.1",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
