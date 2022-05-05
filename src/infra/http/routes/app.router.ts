@@ -4,7 +4,9 @@ import { GetAllBillingGroupingUseCase } from '@/core/useCases/getAllBillingGroup
 import { BillingGroupingAPIResponse } from '@/helpers/interfaces/infra/billingGroupingAPIResponse';
 
 import { Controller as Router, Get, Query } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('BillingGrouping') 
 @Router()
 export class AppRouter {
   getAllBillingGroupingUseCase: GetAllBillingGroupingUseCase
