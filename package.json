@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
+    "dev": "nest start",
     "generate-data": "ts-node-dev -r tsconfig-paths/register scripts/db/generate-data.ts",
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "test:unit": "jest --testPathPattern=tests/unit",
