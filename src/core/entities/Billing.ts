@@ -1,6 +1,7 @@
 import { IBilling } from '@/helpers/interfaces/entities';
 import { NotRemaningInstallmentsError } from '../../helpers/interfaces/exceptions/billing.exceptions';
 import { BillingStatus } from '../../helpers/interfaces/billingStatus';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class Billing {
   private _name: string;
@@ -50,26 +51,32 @@ export class Billing {
     return this._totalNumberOfInstallments - this._totalOfInstallmentsPaid;
   }
 
+  @ApiProperty()
   get name(): string {
     return this._name;
   }
 
+  @ApiProperty()
   get dueDate(): number {
     return this._dueDate;
   }
 
+  @ApiProperty()
   get amount(): number {
     return this._amount;
   }
 
+  @ApiProperty()
   get status(): BillingStatus {
     return this._status;
   }
 
+  @ApiProperty()
   get totalNumberOfInstallments(): number {
     return this._totalNumberOfInstallments;
   }
 
+  @ApiProperty()
   get totalOfInstallmentsPaid(): number {
     return this._totalOfInstallmentsPaid;
   }
