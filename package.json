@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nest start",
     "generate-data": "ts-node-dev -r tsconfig-paths/register scripts/db/generate-data.ts",
-    "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "build": "nest build",
     "test:unit": "jest --testPathPattern=tests/unit",
     "test:integration": "jest --testPathPattern=tests/integrations",
     "test:integration:useCases": "jest --testPathPattern=tests/integrations/core/useCases",
