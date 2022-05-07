@@ -1,4 +1,4 @@
-import { IBilling } from "../entities";
+import { IBilling } from '../entities';
 
 export interface BillingGroupingAPIResponse {
   id?: number;

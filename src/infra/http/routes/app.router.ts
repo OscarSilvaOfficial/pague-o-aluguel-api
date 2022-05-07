@@ -2,27 +2,47 @@ import { BillingGroupingPresenter } from '@/adapters/presenters/billingGrouping.
 import { BillingGroupingRepositoryFactory } from '@/adapters/repositories/factories/repositories.factory';
 import { GetAllBillingGroupingUseCase } from '@/core/useCases/getAllBillingGroupingUseCase';
 import { BillingGroupingAPIResponse } from '@/main/helpers/interfaces/infra/billingGroupingAPIResponse';
-import * as DOCS from '@/main/helpers/docs/swagger/api.docs'; 
+import * as DOCS from '@/main/helpers/docs/swagger/api.docs';
 
-import { Controller as Router, Get, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller as Router,
+  Get,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { BillingGroupingAPIRequest } from '@/main/helpers/interfaces/infra/billingGroupingAPIRequest';
 
-@ApiTags('BillingGrouping') 
-@Router()
+@ApiTags('BillingGrouping')
+@Router('/groups')
 export class AppRouter {
-  getAllBillingGroupingUseCase: GetAllBillingGroupingUseCase
-  
+  getAllBillingGroupingUseCase: GetAllBillingGroupingUseCase;
+
   constructor() {
-    const repository = BillingGroupingRepositoryFactory()
-    this.getAllBillingGroupingUseCase = new GetAllBillingGroupingUseCase(repository)
+    const repository = BillingGroupingRepositoryFactory();
+    this.getAllBillingGroupingUseCase = new GetAllBillingGroupingUseCase(
+      repository,
+    );
   }
-  
+
   @ApiOkResponse(DOCS.getAllBillingGroupings.OK)
   @ApiNotFoundResponse(DOCS.getAllBillingGroupings.NotFound)
-  @Get('/groups')
-  async getAllBillingGroupings(@Query('billings') billings: boolean): Promise<BillingGroupingAPIResponse[]> { 
-    const withBillings = billings || false
-    const billingGroupings = await this.getAllBillingGroupingUseCase.execute({ withBillings });
+  @Get('/')
+  async getAllBillingGroupings(
+    @Query('billings') billings: boolean,
+  ): Promise<BillingGroupingAPIResponse[]> {
+    const withBillings = billings || false;
+    const billingGroupings = await this.getAllBillingGroupingUseCase.execute({
+      withBillings,
+    });
     return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
+  }
+
+  @Post('/')
+  async createBillingGrouping(
+    @Body() billing: BillingGroupingAPIRequest,
+  ): Promise<BillingGroupingAPIResponse> {
+    return billing;
   }
 }
