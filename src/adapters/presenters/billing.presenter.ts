@@ -1,6 +1,6 @@
 import { Billing } from '@/core/entities/Billing';
-import { ResponseTypes } from '@/helpers/interfaces/presenters/response.types';
-import { BillingDatabaseForm } from '../../helpers/interfaces/presenters/billing';
+import { ResponseTypes } from '@/main/helpers/interfaces/presenters/response.types';
+import { BillingDatabaseForm } from '../../main/helpers/interfaces/presenters/billing';
 
 export class BillingPresenter {
   constructor(

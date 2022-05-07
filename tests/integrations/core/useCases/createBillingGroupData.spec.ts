@@ -1,7 +1,7 @@
 import { CreateBillingGroupUseCase } from '@/core/useCases/createBillingGroupUseCase'
 import * as repositories from '@/adapters/repositories/factories/repositories.factory'
 import { Billing } from '@/core/entities/Billing'
-import { BillingStatus } from '@/helpers/interfaces/billingStatus'
+import { BillingStatus } from '@/main/helpers/interfaces/billingStatus'
 
 const billingGroupRepository = repositories.BillingGroupingRepositoryFactory()
 const useCase = new CreateBillingGroupUseCase(billingGroupRepository)

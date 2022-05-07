@@ -1,6 +1,6 @@
 import { BillingGroupRepositoryContract } from '@/adapters/contracts/billingGroupRepositoryContract';
-import { GroupBillingDatabaseForm } from '@/helpers/interfaces/presenters/groupBilling';
-import { GetAllBillingGroupingUseCaseOptions } from '@/helpers/interfaces/useCases/getAllBillingGroupingUseCaseOptions';
+import { GroupBillingDatabaseForm } from '@/main/helpers/interfaces/presenters/groupBilling';
+import { GetAllBillingGroupingUseCaseOptions } from '@/main/helpers/interfaces/useCases/getAllBillingGroupingUseCaseOptions';
 import { Billing } from '../entities/Billing';
 import { BillingGrouping } from '../entities/BillingGrouping';
 

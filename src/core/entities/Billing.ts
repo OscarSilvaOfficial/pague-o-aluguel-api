@@ -1,6 +1,6 @@
-import { IBilling } from '@/helpers/interfaces/entities';
-import { NotRemaningInstallmentsError } from '../../helpers/interfaces/exceptions/billing.exceptions';
-import { BillingStatus } from '../../helpers/interfaces/billingStatus';
+import { IBilling } from '@/main/helpers/interfaces/entities';
+import { NotRemaningInstallmentsError } from '../../main/helpers/interfaces/exceptions/billing.exceptions';
+import { BillingStatus } from '../../main/helpers/interfaces/billingStatus';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class Billing {

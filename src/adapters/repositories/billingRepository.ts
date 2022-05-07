@@ -2,8 +2,8 @@ import { Billing } from '@/core/entities/Billing';
 import { BillingPresenter } from '@/adapters/presenters/billing.presenter';
 import { BillingRepositoryContract } from '../contracts/billingRepositoryContract';
 import { DBDriverContract } from '../contracts/dbDriverContract';
-import { BillingDatabaseForm } from '../../helpers/interfaces/presenters/billing';
-import { ResponseTypes } from '@/helpers/interfaces/presenters/response.types';
+import { BillingDatabaseForm } from '../../main/helpers/interfaces/presenters/billing';
+import { ResponseTypes } from '@/main/helpers/interfaces/presenters/response.types';
 
 export class BillingRepository implements BillingRepositoryContract<BillingDatabaseForm> {
   constructor(private db: DBDriverContract<BillingDatabaseForm, any>) {}

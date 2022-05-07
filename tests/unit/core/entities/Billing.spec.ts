@@ -1,7 +1,7 @@
 import { Billing } from '@/core/entities/Billing';
-import { NotRemaningInstallmentsError } from '@/helpers/interfaces/exceptions/billing.exceptions';
-import { tomorrow, yesterday } from '@/helpers/days';
-import { BillingStatus } from '@/helpers/interfaces/billingStatus';
+import { NotRemaningInstallmentsError } from '@/main/helpers/interfaces/exceptions/billing.exceptions';
+import { tomorrow, yesterday } from '@/main/helpers/days';
+import { BillingStatus } from '@/main/helpers/interfaces/billingStatus';
 
 const billingData = {
   name: 'Pagamento teste',

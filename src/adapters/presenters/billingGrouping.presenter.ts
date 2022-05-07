@@ -1,6 +1,6 @@
 import { BillingGrouping } from '@/core/entities/BillingGrouping';
-import { GroupBillingDatabaseForm } from '@/helpers/interfaces/presenters/groupBilling';
-import { ResponseTypes } from '@/helpers/interfaces/presenters/response.types';
+import { GroupBillingDatabaseForm } from '@/main/helpers/interfaces/presenters/groupBilling';
+import { ResponseTypes } from '@/main/helpers/interfaces/presenters/response.types';
 import { BillingPresenter } from './billing.presenter';
 
 export class BillingGroupingPresenter {

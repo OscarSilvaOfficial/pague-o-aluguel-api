@@ -1,8 +1,8 @@
-import { BillingDatabaseForm } from '@/helpers/interfaces/presenters/billing';
+import { BillingDatabaseForm } from '@/main/helpers/interfaces/presenters/billing';
 import { BillingRepository } from '@/adapters/repositories/billingRepository';
 import { PrismaClient } from '@prisma/client';
 import { PrismaDB } from '@/infra/db/prisma.db';
-import { GroupBillingDatabaseForm } from '@/helpers/interfaces/presenters/groupBilling';
+import { GroupBillingDatabaseForm } from '@/main/helpers/interfaces/presenters/groupBilling';
 import { BillingGroupingRepository } from '../billingGroupingRepository';
 
 export const BillingRepositoryFactory = () => {

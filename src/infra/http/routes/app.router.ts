@@ -1,8 +1,8 @@
 import { BillingGroupingPresenter } from '@/adapters/presenters/billingGrouping.presenter';
 import { BillingGroupingRepositoryFactory } from '@/adapters/repositories/factories/repositories.factory';
 import { GetAllBillingGroupingUseCase } from '@/core/useCases/getAllBillingGroupingUseCase';
-import { BillingGroupingAPIResponse } from '@/helpers/interfaces/infra/billingGroupingAPIResponse';
-import * as DOCS from '@/helpers/docs/swagger/api.docs'; 
+import { BillingGroupingAPIResponse } from '@/main/helpers/interfaces/infra/billingGroupingAPIResponse';
+import * as DOCS from '@/main/helpers/docs/swagger/api.docs'; 
 
 import { Controller as Router, Get, Query } from '@nestjs/common';
 import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';

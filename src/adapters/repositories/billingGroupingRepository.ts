@@ -1,9 +1,9 @@
 import { DBDriverContract } from '../contracts/dbDriverContract';
-import { GroupBillingDatabaseForm } from '@/helpers/interfaces/presenters/groupBilling';
+import { GroupBillingDatabaseForm } from '@/main/helpers/interfaces/presenters/groupBilling';
 import { BillingGroupRepositoryContract } from '../contracts/billingGroupRepositoryContract';
 import { BillingGrouping } from '@/core/entities/BillingGrouping';
 import { BillingGroupingPresenter } from '../presenters/billingGrouping.presenter';
-import { ResponseTypes } from '@/helpers/interfaces/presenters/response.types';
+import { ResponseTypes } from '@/main/helpers/interfaces/presenters/response.types';
 
 export class BillingGroupingRepository implements BillingGroupRepositoryContract<GroupBillingDatabaseForm> {
   constructor(private db: DBDriverContract<GroupBillingDatabaseForm, any>) {}
