@@ -12,7 +12,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { BillingGroupingAPIRequest } from '@/main/helpers/interfaces/infra/billingGroupingAPIRequest';
+import { BillingGroupingAPIRequest } from '@/main/helpers/validators/request/billingGroupingAPIRequest';
 
 @ApiTags('BillingGrouping')
 @Router('/groups')

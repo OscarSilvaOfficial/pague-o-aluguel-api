@@ -1,4 +1,4 @@
-import { BillingStatus } from "../billingStatus";
+import { BillingStatus } from "../../interfaces/billingStatus";
 import { IsNotEmpty } from 'class-validator';
 
 
