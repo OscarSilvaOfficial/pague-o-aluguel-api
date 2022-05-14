@@ -4,7 +4,7 @@ import { ICreateBillingGroupData } from '@/main/helpers/interfaces/useCases/crea
 import { Billing } from '../entities/Billing';
 import { BillingGrouping } from '../entities/BillingGrouping';
 
-export class CreateBillingGroupUseCase {
+export class CreateBillingGroupingUseCase {
   constructor(
     private billingGroupRepository: BillingGroupRepositoryContract<GroupBillingDatabaseForm>,
   ) {}

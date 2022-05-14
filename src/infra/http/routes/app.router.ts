@@ -21,9 +21,7 @@ export class AppRouter {
 
   constructor() {
     const repository = BillingGroupingRepositoryFactory();
-    this.getAllBillingGroupingUseCase = new GetAllBillingGroupingUseCase(
-      repository,
-    );
+    this.getAllBillingGroupingUseCase = new GetAllBillingGroupingUseCase(repository);
   }
 
   @ApiOkResponse(DOCS.getAllBillingGroupings.OK)

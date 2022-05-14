@@ -1,10 +1,10 @@
-import { CreateBillingGroupUseCase } from '@/core/useCases/createBillingGroupUseCase'
+import { CreateBillingGroupingUseCase } from '@/core/useCases/createBillingGroupingUseCase'
 import * as repositories from '@/adapters/repositories/factories/repositories.factory'
 import { Billing } from '@/core/entities/Billing'
 import { BillingStatus } from '@/main/helpers/interfaces/billingStatus'
 
 const billingGroupRepository = repositories.BillingGroupingRepositoryFactory()
-const useCase = new CreateBillingGroupUseCase(billingGroupRepository)
+const useCase = new CreateBillingGroupingUseCase(billingGroupRepository)
 
 describe("Teste dos casos de uso para criação de grupo de pagamento", () => {
 
