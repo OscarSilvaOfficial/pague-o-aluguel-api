@@ -50,10 +50,14 @@ export class BillingGroupingPresenter {
   }
 
   static createGroupBillingResponseAPI(groupBillings: GroupBillingDatabaseForm): GroupBillingDatabaseForm {
-    return {
+    const defaultResponse = {
       id: groupBillings.id,
       name: groupBillings.name,
       description: groupBillings.description,
+    }
+    if (!groupBillings.billings) return defaultResponse
+    return {
+      ...defaultResponse,
       billings: groupBillings.billings.map((billing) => ({
         id: billing.id,
         name: billing.name,
@@ -62,8 +66,8 @@ export class BillingGroupingPresenter {
         status: billing.status,
         totalNumberOfInstallments: billing.totalNumberOfInstallments,
         totalOfInstallmentsPaid: billing.totalOfInstallmentsPaid,
-      })),
-    };
+      }))
+    }
   }
 
   static getAllBillingGroupingsResponseAPI(
