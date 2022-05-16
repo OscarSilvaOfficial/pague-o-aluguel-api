@@ -13,15 +13,18 @@ import {
 } from '@nestjs/common';
 import { ApiNotFoundResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { BillingGroupingAPIRequest } from '@/main/helpers/validators/request/billingGroupingAPIRequest';
+import { CreateBillingGroupingUseCase } from '@/core/useCases/createBillingGroupingUseCase';
 
 @ApiTags('BillingGrouping')
 @Router('/groups')
 export class AppRouter {
   getAllBillingGroupingUseCase: GetAllBillingGroupingUseCase;
+  createBillingGroupingUseCase: CreateBillingGroupingUseCase;
 
   constructor() {
     const repository = BillingGroupingRepositoryFactory();
     this.getAllBillingGroupingUseCase = new GetAllBillingGroupingUseCase(repository);
+    this.createBillingGroupingUseCase = new CreateBillingGroupingUseCase(repository);
   }
 
   @ApiOkResponse(DOCS.getAllBillingGroupings.OK)
@@ -34,13 +37,14 @@ export class AppRouter {
     const billingGroupings = await this.getAllBillingGroupingUseCase.execute({
       withBillings,
     });
-    return BillingGroupingPresenter.serializeResponseAPI(billingGroupings);
+    return BillingGroupingPresenter.getAllBillingGroupingsResponseAPI(billingGroupings);
   }
 
   @Post('/')
   async createBillingGrouping(
     @Body() billing: BillingGroupingAPIRequest,
   ): Promise<BillingGroupingAPIResponse> {
-    return billing;
+    const billingGrouping = await this.createBillingGroupingUseCase.execute(billing);
+    return BillingGroupingPresenter.createGroupBillingResponseAPI(billingGrouping);
   }
 }

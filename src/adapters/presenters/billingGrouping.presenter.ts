@@ -49,7 +49,24 @@ export class BillingGroupingPresenter {
     }
   }
 
-  static serializeResponseAPI(
+  static createGroupBillingResponseAPI(groupBillings: GroupBillingDatabaseForm): GroupBillingDatabaseForm {
+    return {
+      id: groupBillings.id,
+      name: groupBillings.name,
+      description: groupBillings.description,
+      billings: groupBillings.billings.map((billing) => ({
+        id: billing.id,
+        name: billing.name,
+        dueDate: billing.dueDate,
+        amount: billing.amount,
+        status: billing.status,
+        totalNumberOfInstallments: billing.totalNumberOfInstallments,
+        totalOfInstallmentsPaid: billing.totalOfInstallmentsPaid,
+      })),
+    };
+  }
+
+  static getAllBillingGroupingsResponseAPI(
     groupBillings: GroupBillingDatabaseForm[],
   ): GroupBillingDatabaseForm[] {
     return groupBillings.map((group) => {
