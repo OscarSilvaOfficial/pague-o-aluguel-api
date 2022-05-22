@@ -40,6 +40,7 @@ export class AppRouter {
     return BillingGroupingPresenter.getAllBillingGroupingsResponseAPI(billingGroupings);
   }
 
+  @ApiOkResponse(DOCS.createBillingGrouping.OK)
   @Post('/')
   async createBillingGrouping(
     @Body() billing: BillingGroupingAPIRequest,

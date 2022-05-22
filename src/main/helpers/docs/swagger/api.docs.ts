@@ -12,3 +12,11 @@ export const getAllBillingGroupings = {
     status: 404,
   } as ApiResponseOptions
 }
+
+export const createBillingGrouping = {
+  OK: {
+    description: 'create a billing groupings',
+    type: BillingGrouping,
+    isArray: false,
+  } as ApiResponseOptions
+}
