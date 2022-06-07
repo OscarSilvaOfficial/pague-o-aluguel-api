@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppRouter } from '@/infra/http/routes/app.router';
+import { AppRouter } from '@/main/http/routes/app.router';
 
 @Module({
   imports: [],
